@@ -1,8 +1,20 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Chakra Petch', ...defaultTheme.fontFamily.sans],
+        redaction: ['Redaction', ...defaultTheme.fontFamily.mono],
+        'redaction-10': ['"Redaction 10"', ...defaultTheme.fontFamily.mono],
+        'redaction-20': ['"Redaction 20"', ...defaultTheme.fontFamily.mono],
+        'redaction-35': ['"Redaction 35"', ...defaultTheme.fontFamily.mono],
+        'redaction-50': ['"Redaction 50"', ...defaultTheme.fontFamily.mono],
+        'redaction-70': ['"Redaction 70"', ...defaultTheme.fontFamily.mono],
+        'redaction-100': ['"Redaction 100"', ...defaultTheme.fontFamily.mono],
+      },
+    },
     colors: {
       black: '#0d0b10',
       'dark-green': '#0c4346',
