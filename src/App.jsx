@@ -1,8 +1,5 @@
-import { useState } from 'react'
-
 function App() {
-  return (
-  )
+  return <h1 className="text-4xl text-center mt-20">Hello World</h1>;
 }
 
-export default App
+export default App;
