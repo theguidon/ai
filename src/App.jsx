@@ -1,5 +1,15 @@
+import { Route, Switch } from 'wouter';
+import TitlePage from './pages/Title';
+
+// Wouter for routing:
+// https://github.com/molefrog/wouter?tab=readme-ov-file#getting-started
+
 function App() {
-  return <h1 className="text-4xl text-center mt-20 font-redaction-70">Hello World</h1>;
+  return (
+    <Switch>
+      <Route path="/" component={TitlePage} />
+    </Switch>
+  );
 }
 
 export default App;
