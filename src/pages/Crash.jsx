@@ -1,19 +1,31 @@
 import GlitchBG from "../assets/glitch-bg-2.gif";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Link, useLocation } from "wouter";
 
+// GSAP for animation because its a pain without
+// https://gsap.com/docs/v3/
 gsap.registerPlugin(useGSAP);
 
 const CrashPage = () => {
+  const [location, navigate] = useLocation();
+  useEffect(() => {
+    const delay = setInterval(() => {
+      navigate("/about");
+    }, 10000);
+
+    return () => clearInterval(delay);
+  }, [navigate]);
+
   const mainRef = useRef(null);
   useGSAP(
     () => {
-      var tl = gsap.timeline({ repeat: -1});
+      var tl = gsap.timeline({ repeat: -1 });
       tl.to(".crash-background", {
         background: `linear-gradient(312deg, #E46351 -24.28%, #E46351 107.05%), url(${GlitchBG}) lightgray 50% / cover no-repeat`,
         duration: 1,
-				delay: 1,
+        delay: 1,
       });
       tl.to(".error-text", {
         color: "#E46351",
@@ -49,6 +61,8 @@ const CrashPage = () => {
           This interactive is no longer working.
         </h2>
       </div>
+
+      <Link to="/about" className="w-full h-full z-10 fixed top-0 left-0" />
     </main>
   );
 };
