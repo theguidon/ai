@@ -9,14 +9,14 @@ import { Link, useLocation } from "wouter";
 gsap.registerPlugin(useGSAP);
 
 const CrashPage = () => {
-  const [location, navigate] = useLocation();
-  useEffect(() => {
-    const delay = setInterval(() => {
-      navigate("/about");
-    }, 10000);
-
-    return () => clearInterval(delay);
-  }, [navigate]);
+  // const [location, navigate] = useLocation();
+  // useEffect(() => {
+  //   const delay = setInterval(() => {
+  //     navigate("/about");
+  //   }, 10000);
+  //
+  //   return () => clearInterval(delay);
+  // }, [navigate]);
 
   const mainRef = useRef(null);
   useGSAP(
@@ -54,10 +54,10 @@ const CrashPage = () => {
       />
 
       <div className="w-full h-full flex flex-col justify-center text-light-green error-text">
-        <h1 className={`font-redaction-35 text-[7rem] text-center`}>
+        <h1 className={`font-redaction-35 text-[3.5rem] md:text-[7rem] text-center`}>
           System Error 404
         </h1>
-        <h2 className={`font-redaction-50 text-[2rem] text-center`}>
+        <h2 className={`font-redaction-50 text-[1.25rem] md:text-[2rem] text-center`}>
           This interactive is no longer working.
         </h2>
       </div>
