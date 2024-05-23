@@ -1,4 +1,8 @@
 import ai1 from "../assets/ai1.png";
+import ball from "../assets/ball.png";
+import chatgpt from "../assets/chatgpt.svg";
+import perplexity from "../assets/perplexity.svg";
+import midjourney from "../assets/midjourney.svg";
 import { Link } from "wouter";
 import { useRef } from "react";
 import gsap from "gsap";
@@ -11,14 +15,14 @@ gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutPage = () => {
-	// animate image horizontal scroll
+  // animate image horizontal scroll
   const mainRef = useRef(null);
   useGSAP(
     () => {
       const galleryArray = gsap.utils.toArray(".gallery");
       galleryArray.forEach((gallery) => {
         gsap.to(gallery, {
-          scrollTrigger: { trigger: gallery, scrub: 1, end: "bottom top" },
+          scrollTrigger: { trigger: gallery, scrub: 1 },
           x: -window.innerWidth,
         });
       });
@@ -74,7 +78,7 @@ const AboutPage = () => {
               pools of data, which are openly sourced content on the Internet.
             </p>
           </div>
-          <div className="flex flex-row gap-[1.5rem] translate-x-[100%] gallery">
+          <div className="flex flex-row gap-[10dvw] translate-x-[100%] gallery">
             <img src={ai1} />
             <img src={ai1} />
             <img src={ai1} />
@@ -88,6 +92,75 @@ const AboutPage = () => {
             etc. As a result, GenAI models can create an entirely new set of
             information for internet users to consume.
           </p>
+          <div className="relative flex justify-center">
+            <img src={ball} className="aspect-square z-50" />
+            <img
+              src={chatgpt}
+              className="absolute left-[-5%] w-[20dvw] top-1/2 translate-y-[-50%] max-w-[6rem]"
+            />
+            <img
+              src={perplexity}
+              className="mix-blend-difference bg-white absolute w-[20dvw] right-0 max-w-[6rem]"
+            />
+            <img
+              src={midjourney}
+              className="absolute w-[25dvw] right-[-5%] bottom-[-5%] max-w-[6rem]"
+            />
+            <div
+              className="w-[2.6rem] h-[2.6rem] rounded-[0.3rem] absolute top-0 left-[60%] "
+              style={{
+                background:
+                  "linear-gradient(169deg, rgba(255, 0, 0, 0.87) -155.52%, rgba(124, 94, 94, 0.90) 161.13%)",
+                backdropFilter: "blur(25.6)",
+              }}
+            ></div>
+            <div className="absolute top-0 right-[70dvw] flex flex-col gap-[0.3rem]">
+              <div
+                className="w-[18rem] h-[0.5rem] rounded-[0.1]"
+                style={{
+                  background:
+                    "linear-gradient(267deg, rgba(251, 30, 53, 0.50) 3.46%, rgba(0, 50, 48, 0.20) 125.92%)",
+                }}
+              ></div>
+              <div
+                className="w-[18rem] h-[0.5rem] rounded-[0.1] translate-x-[-10%]"
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(0, 50, 48, 0.20) 5.76%, rgba(251, 30, 53, 0.50) 71.18%, rgba(0, 50, 48, 0.20) 98.26%)",
+                }}
+              ></div>
+              <div
+                className="w-[18rem] h-[0.5rem] rounded-[0.1] translate-x-[-20%]"
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(0, 50, 48, 0.10) 40.48%, rgba(251, 30, 53, 0.50) 69.77%)",
+                }}
+              ></div>
+            </div>
+            <div className="absolute bottom-0 right-[5dvw] flex flex-col gap-[0.3rem] scale-x-[-1]">
+              <div
+                className="w-[9rem] h-[0.5rem] rounded-[0.1]"
+                style={{
+                  background:
+                    "linear-gradient(267deg, rgba(251, 30, 53, 0.50) 3.46%, rgba(0, 50, 48, 0.20) 125.92%)",
+                }}
+              ></div>
+              <div
+                className="w-[7rem] h-[0.5rem] rounded-[0.1]"
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(0, 50, 48, 0.20) 5.76%, rgba(251, 30, 53, 0.50) 71.18%, rgba(0, 50, 48, 0.20) 98.26%)",
+                }}
+              ></div>
+              <div
+                className="w-[6rem] h-[0.5rem] rounded-[0.1]"
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(0, 50, 48, 0.10) 40.48%, rgba(251, 30, 53, 0.50) 69.77%)",
+                }}
+              ></div>
+            </div>
+          </div>
           <p className="font-redaction">
             However, the issue arises when GenAI models gather inaccurate chunks
             of information also propagated online. As GenAI continues to be
@@ -135,7 +208,7 @@ const AboutPage = () => {
             produce highly distorted results due to their vulnerability to being
             “poisoned” from manipulated data found online.
           </p>
-          <div className="flex flex-row gap-[1.5rem] translate-x-[100%] gallery">
+          <div className="flex flex-row gap-[10dvw] translate-x-[100%] gallery">
             <img src={ai1} />
             <img src={ai1} />
             <img src={ai1} />
