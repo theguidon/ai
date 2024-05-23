@@ -9,14 +9,14 @@ import { Link, useLocation } from "wouter";
 gsap.registerPlugin(useGSAP);
 
 const CrashPage = () => {
-  // const [location, navigate] = useLocation();
-  // useEffect(() => {
-  //   const delay = setInterval(() => {
-  //     navigate("/about");
-  //   }, 10000);
-  //
-  //   return () => clearInterval(delay);
-  // }, [navigate]);
+  const [location, navigate] = useLocation();
+  useEffect(() => {
+    const delay = setInterval(() => {
+      navigate("/about");
+    }, 10000);
+
+    return () => clearInterval(delay);
+  }, [navigate]);
 
   const mainRef = useRef(null);
   useGSAP(
