@@ -3,6 +3,8 @@ import ball from "../assets/ball.png";
 import chatgpt from "../assets/chatgpt.svg";
 import perplexity from "../assets/perplexity.svg";
 import midjourney from "../assets/midjourney.svg";
+import arrow from "../assets/arrow-counterclockwise.svg";
+
 import { Link } from "wouter";
 import { useRef } from "react";
 import gsap from "gsap";
@@ -37,8 +39,9 @@ const AboutPage = () => {
     >
       <Link
         to="/"
-        className="self-end w-fit bg-light-red rounded-[0.5rem] p-[0.5rem] m-[1.62rem]"
+        className="self-end w-fit bg-light-red rounded-[0.5rem] p-[0.5rem] m-[1.62rem] flex flex-row gap-[0.5rem] text-[0.875rem] font-bold items-center"
       >
+        <img src={arrow} />
         Restart Simulation
       </Link>
       <section className="flex flex-col items-center p-[2rem] pt-0">
