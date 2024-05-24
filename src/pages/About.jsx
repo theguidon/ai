@@ -51,7 +51,7 @@ const AboutPage = () => {
         <h2 className="text-light-red text-[3rem] font-bold text-center">
           Degenerative AI
         </h2>
-        <div className="flex flex-col gap-[1.62rem]">
+        <div className="flex flex-col gap-[1.62rem] max-w-full">
           <p className="font-redaction">
             The emergence of Generative Artificial Intelligence (GenAI) has
             enabled models like ChatGPT and Bard platforms for its users to
@@ -81,7 +81,7 @@ const AboutPage = () => {
               pools of data, which are openly sourced content on the Internet.
             </p>
           </div>
-          <div className="flex flex-row gap-[10dvw] translate-x-[100%] gallery">
+          <div className="flex flex-row gap-[3rem] justify-between w-[120dvw] translate-x-[150%] gallery">
             <img src={ai1} />
             <img src={ai1} />
             <img src={ai1} />
@@ -211,7 +211,7 @@ const AboutPage = () => {
             produce highly distorted results due to their vulnerability to being
             “poisoned” from manipulated data found online.
           </p>
-          <div className="flex flex-row gap-[10dvw] translate-x-[100%] gallery">
+          <div className="flex flex-row gap-[3rem] justify-between translate-x-[100%] gallery">
             <img src={ai1} />
             <img src={ai1} />
             <img src={ai1} />
