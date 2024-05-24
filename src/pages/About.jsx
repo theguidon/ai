@@ -1,5 +1,15 @@
 import ai1 from "../assets/ai1.png";
+import ai2 from "../assets/ai2.png";
+import ai3 from "../assets/ai3.png";
+import ai4 from "../assets/ai4.png";
+import ai5 from "../assets/ai5.png";
+import ai6 from "../assets/ai6.png";
+import ai7 from "../assets/ai7.png";
+import ai8 from "../assets/ai8.png";
+import ai9 from "../assets/ai9.png";
+import ai10 from "../assets/ai10.png";
 import ball from "../assets/ball.png";
+
 import chatgpt from "../assets/chatgpt.svg";
 import perplexity from "../assets/perplexity.svg";
 import midjourney from "../assets/midjourney.svg";
@@ -391,44 +401,44 @@ const AboutPage = () => {
           }}
         ></div>
         <div
-          className="absolute top-[13%] left-0 w-[6rem] h-[6rem] hidden md:block"
+          className="absolute top-[13%] right-1/2 translate-x-[-500%] w-[6rem] h-[6rem] hidden md:block"
           style={{ background: `url(${ai1}) center` }}
         ></div>
         <div
-          className="absolute top-[13%] right-[-5%] w-[12rem] h-[7.25rem] hidden md:block"
-          style={{ background: `url(${ai1}) top / cover` }}
+          className="absolute top-[13%] right-1/2 translate-x-[350%] w-[12rem] h-[7.25rem] hidden md:block"
+          style={{ background: `url(${ai2}) top / cover` }}
         ></div>
         <div
           className="absolute top-[25%] left-[85%] w-[39rem] h-[14rem] hidden md:block"
-          style={{ background: `url(${ai1}) top / cover` }}
+          style={{ background: `url(${ai3}) top left / contain` }}
         ></div>
         <div
           className="absolute top-[55%] right-[88%] w-[15rem] h-[18rem] rounded-[1.5rem] hidden md:block"
-          style={{ background: `url(${ai1}) top / cover` }}
+          style={{ background: `url(${ai4}) top / cover` }}
         ></div>
         <div
           className="absolute top-[63%] right-[85%] w-[7rem] h-[7rem] rounded-[1rem] hidden md:block"
-          style={{ background: `url(${ai1}) top / cover` }}
+          style={{ background: `url(${ai5}) top / cover` }}
         ></div>
         <div
           className="absolute top-[67%] right-[-5%] w-[11.75rem] h-[13.25rem] rounded-[1rem] hidden md:block"
-          style={{ background: `url(${ai1}) top / cover` }}
+          style={{ background: `url(${ai6}) top / cover` }}
         ></div>
         <div
-          className="absolute top-[75%] right-1/2 translate-x-[-380%] w-[7rem] h-[7rem] hidden md:block"
-          style={{ background: `url(${ai1}) top / cover` }}
+          className="absolute top-[76%] right-1/2 translate-x-[-380%] w-[7rem] h-[7rem] hidden md:block"
+          style={{ background: `url(${ai8}) top / cover` }}
         ></div>
         <div
           className="absolute top-[73%] right-1/2 translate-x-[-400%] w-[7rem] h-[7rem] hidden md:block"
-          style={{ background: `url(${ai1}) top / cover` }}
+          style={{ background: `url(${ai7}) top / cover` }}
         ></div>
         <div
           className="absolute top-[80%] right-1/2 translate-x-[-220%] w-[13rem] h-[13rem] hidden md:block"
-          style={{ background: `url(${ai1}) top / cover` }}
+          style={{ background: `url(${ai9}) center / cover` }}
         ></div>
         <div
           className="absolute top-[80%] right-1/2 translate-x-[320%] w-[13rem] h-[13rem] hidden md:block"
-          style={{ background: `url(${ai1}) top / cover` }}
+          style={{ background: `url(${ai10}) center / cover` }}
         ></div>
       </section>
     </main>
