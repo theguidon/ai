@@ -34,8 +34,11 @@ const AboutPage = () => {
 
   return (
     <main
-      className="bg-black text-pink flex flex-col overflow-hidden"
+      className="text-pink flex flex-col overflow-hidden relative"
       ref={mainRef}
+      style={{
+        background: "linear-gradient(312deg, #99151F -24.28%, #0D0B10 39.68%)",
+      }}
     >
       <Link
         to="/"
@@ -48,31 +51,38 @@ const AboutPage = () => {
         <h1 className="text-light-red text-[1.5rem] bg-dark-red w-[6rem] text-center rounded-[0.5rem] p-[0.25rem 0.5rem]">
           ABOUT
         </h1>
-        <h2 className="text-light-red text-[3rem] font-bold text-center">
+        <h2 className="text-light-red text-[3rem] font-bold text-center md:text-[5.125rem]">
           Degenerative AI
         </h2>
-        <div className="flex flex-col gap-[1.62rem] max-w-full">
+        <div className="flex flex-col gap-[1.62rem] max-w-full md:max-w-[50rem] md:text-[1.5rem] z-10">
           <p className="font-redaction">
             The emergence of Generative Artificial Intelligence (GenAI) has
             enabled models like ChatGPT and Bard platforms for its users to
             input prompts, for which GenAI models would accordingly generate
             responses.
           </p>
-          <div className="border-pink border-[1px] border-solid rounded-[0.5rem] p-[1.5rem] relative">
+          <div
+            className="border-pink border-[1px] border-solid rounded-[0.5rem] p-[1.5rem] relative"
+            style={{
+              background:
+                "linear-gradient(124deg, rgba(255, 255, 255, 0.00) -22.38%, rgba(255, 255, 255, 0.04) 70.38%)",
+              backdropFilter: "blur(21px)",
+            }}
+          >
             <div
-              className="absolute top-0 right-0 w-[3.125rem] h-[3.125rem] translate-x-[50%] translate-y-[-50%] rounded-[0.3rem] z-10"
+              className="absolute top-0 right-0 w-[3.125rem] h-[3.125rem] translate-x-[50%] translate-y-[-50%] rounded-[0.3rem] md:w-[4.6rem] md:h-[4.6rem]"
               style={{
                 background:
                   "linear-gradient(169deg, rgba(255, 3, 3, 0.49) -155.52%, rgba(109, 55, 55, 0.50) 161.13%)",
-                backdropFilter: "blur(33)",
+                backdropFilter: "blur(33px)",
               }}
             ></div>
             <div
-              className="absolute bottom-0 left-0 w-[1.5rem] h-[1.5rem] translate-x-[-50%] translate-y-[50%] rounded-[0.25rem] z-10"
+              className="absolute bottom-0 left-0 w-[1.5rem] h-[1.5rem] translate-x-[-50%] translate-y-[50%] rounded-[0.25rem] z-10 md:w-[3rem] md:h-[3rem]"
               style={{
                 background:
                   "linear-gradient(169deg, rgba(255, 0, 0, 0.87) -155.52%, rgba(124, 94, 94, 0.90) 161.13%)",
-                backdropFilter: "blur(50)",
+                backdropFilter: "blur(50px)",
               }}
             ></div>
             <p className="text-dark-pink font-redaction-50 font-bold">
@@ -81,7 +91,7 @@ const AboutPage = () => {
               pools of data, which are openly sourced content on the Internet.
             </p>
           </div>
-          <div className="flex flex-row gap-[3rem] justify-between w-[120dvw] translate-x-[150%] gallery">
+          <div className="flex flex-row gap-[3rem] justify-between w-[120dvw] translate-x-[150%] gallery md:hidden">
             <img src={ai1} />
             <img src={ai1} />
             <img src={ai1} />
@@ -95,68 +105,94 @@ const AboutPage = () => {
             etc. As a result, GenAI models can create an entirely new set of
             information for internet users to consume.
           </p>
-          <div className="relative flex justify-center">
-            <img src={ball} className="aspect-square z-50" />
+          <div className="relative flex justify-center md:h-[35rem]">
+            <img
+              src={ball}
+              className="aspect-square z-50 self-center md:w-[20rem]"
+            />
             <img
               src={chatgpt}
-              className="absolute left-[-5%] w-[20dvw] top-1/2 translate-y-[-50%] max-w-[6rem]"
+              className="absolute left-[-5%] w-[20dvw] top-1/2 translate-y-[-50%] max-w-[6rem] md:w-[20rem] md:max-w-none md:left-[-20%] md:top-[35%]"
             />
             <img
               src={perplexity}
-              className="mix-blend-difference bg-white absolute w-[20dvw] right-0 max-w-[6rem]"
+              className="mix-blend-difference bg-white absolute w-[20dvw] right-0 max-w-[6rem] md:w-[20rem] md:max-w-none"
             />
             <img
               src={midjourney}
-              className="absolute w-[25dvw] right-[-5%] bottom-[-5%] max-w-[6rem]"
+              className="absolute w-[25dvw] right-[-5%] bottom-[-5%] max-w-[6rem] md:max-w-none md:w-[20rem] md:right-[-30%]"
             />
             <div
               className="w-[2.6rem] h-[2.6rem] rounded-[0.3rem] absolute top-0 left-[60%] "
               style={{
                 background:
                   "linear-gradient(169deg, rgba(255, 0, 0, 0.87) -155.52%, rgba(124, 94, 94, 0.90) 161.13%)",
-                backdropFilter: "blur(25.6)",
+                backdropFilter: "blur(25.6px)",
               }}
             ></div>
-            <div className="absolute top-0 right-[70dvw] flex flex-col gap-[0.3rem]">
+            <div className="absolute top-0 right-[70dvw] flex flex-col gap-[0.3rem] md:top-[-50%]">
               <div
-                className="w-[18rem] h-[0.5rem] rounded-[0.1]"
+                className="w-[18rem] h-[0.5rem] rounded-[0.3rem] md:h-[1rem]"
                 style={{
                   background:
                     "linear-gradient(267deg, rgba(251, 30, 53, 0.50) 3.46%, rgba(0, 50, 48, 0.20) 125.92%)",
                 }}
               ></div>
               <div
-                className="w-[18rem] h-[0.5rem] rounded-[0.1] translate-x-[-10%]"
+                className="w-[18rem] h-[0.5rem] rounded-[0.3rem] translate-x-[-10%] md:h-[1rem]"
                 style={{
                   background:
                     "linear-gradient(90deg, rgba(0, 50, 48, 0.20) 5.76%, rgba(251, 30, 53, 0.50) 71.18%, rgba(0, 50, 48, 0.20) 98.26%)",
                 }}
               ></div>
               <div
-                className="w-[18rem] h-[0.5rem] rounded-[0.1] translate-x-[-20%]"
+                className="w-[18rem] h-[0.5rem] rounded-[0.3rem] translate-x-[-20%] md:h-[1rem]"
                 style={{
                   background:
                     "linear-gradient(90deg, rgba(0, 50, 48, 0.10) 40.48%, rgba(251, 30, 53, 0.50) 69.77%)",
                 }}
               ></div>
             </div>
-            <div className="absolute bottom-0 right-[5dvw] flex flex-col gap-[0.3rem] scale-x-[-1]">
+            <div className="absolute bottom-0 right-[5dvw] flex flex-col gap-[0.3rem] scale-x-[-1] md:right-[-20%] md:bottom-[10%]">
               <div
-                className="w-[9rem] h-[0.5rem] rounded-[0.1]"
+                className="w-[9rem] h-[0.5rem] rounded-[0.3rem] md:h-[1rem] md:w-[33rem]"
                 style={{
                   background:
                     "linear-gradient(267deg, rgba(251, 30, 53, 0.50) 3.46%, rgba(0, 50, 48, 0.20) 125.92%)",
                 }}
               ></div>
               <div
-                className="w-[7rem] h-[0.5rem] rounded-[0.1]"
+                className="w-[7rem] h-[0.5rem] rounded-[0.3rem] md:h-[1rem] md:w-[33rem]"
                 style={{
                   background:
                     "linear-gradient(90deg, rgba(0, 50, 48, 0.20) 5.76%, rgba(251, 30, 53, 0.50) 71.18%, rgba(0, 50, 48, 0.20) 98.26%)",
                 }}
               ></div>
               <div
-                className="w-[6rem] h-[0.5rem] rounded-[0.1]"
+                className="w-[6rem] h-[0.5rem] rounded-[0.3rem] md:h-[1rem] md:w-[33rem]"
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(0, 50, 48, 0.10) 40.48%, rgba(251, 30, 53, 0.50) 69.77%)",
+                }}
+              ></div>
+            </div>
+            <div className="absolute hidden bottom-0 right-[60dvw] flex-col gap-[0.3rem] md:flex">
+              <div
+                className="w-[18rem] h-[0.5rem] rounded-[0.3rem] md:h-[1rem]"
+                style={{
+                  background:
+                    "linear-gradient(267deg, rgba(251, 30, 53, 0.50) 3.46%, rgba(0, 50, 48, 0.20) 125.92%)",
+                }}
+              ></div>
+              <div
+                className="w-[18rem] h-[0.5rem] rounded-[0.3rem] translate-x-[-10%] md:h-[1rem]"
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(0, 50, 48, 0.20) 5.76%, rgba(251, 30, 53, 0.50) 71.18%, rgba(0, 50, 48, 0.20) 98.26%)",
+                }}
+              ></div>
+              <div
+                className="w-[18rem] h-[0.5rem] rounded-[0.3rem] translate-x-[-20%] md:h-[1rem]"
                 style={{
                   background:
                     "linear-gradient(90deg, rgba(0, 50, 48, 0.10) 40.48%, rgba(251, 30, 53, 0.50) 69.77%)",
@@ -177,21 +213,28 @@ const AboutPage = () => {
             utilized by Internet users, troves of these erroneous data
             proliferate.
           </p>
-          <div className="border-pink border-[1px] border-solid rounded-[0.5rem] p-[1.5rem] relative">
+          <div
+            className="border-pink border-[1px] border-solid rounded-[0.5rem] p-[1.5rem] relative"
+            style={{
+              background:
+                "linear-gradient(124deg, rgba(255, 255, 255, 0.00) -22.38%, rgba(255, 255, 255, 0.04) 70.38%)",
+              backdropFilter: "blur(21px)",
+            }}
+          >
             <div
-              className="absolute top-0 right-0 w-[3.125rem] h-[3.125rem] translate-x-[50%] translate-y-[-50%] rounded-[0.3rem] z-10"
+              className="absolute top-0 right-0 w-[3.125rem] h-[3.125rem] translate-x-[50%] translate-y-[-50%] rounded-[0.3rem] z-10 md:right-[-15%] md:w-[4.6rem] md:h-[4.6rem]"
               style={{
                 background:
                   "linear-gradient(169deg, rgba(255, 3, 3, 0.49) -155.52%, rgba(109, 55, 55, 0.50) 161.13%)",
-                backdropFilter: "blur(33)",
+                backdropFilter: "blur(33px)",
               }}
             >
               <div
-                className="absolute top-0 left-0 w-[1.5rem] h-[1.5rem] translate-x-[-110%] translate-y-[-110%] rounded-[0.15rem] z-10"
+                className="absolute top-0 left-0 w-[1.5rem] h-[1.5rem] translate-x-[-110%] translate-y-[-110%] rounded-[0.15rem] z-10 md:w-[4.6rem] md:h-[4.6rem] md:translate-x-[-50%] md:translate-y-[-50%]"
                 style={{
                   background:
                     "linear-gradient(169deg, rgba(213, 93, 93, 0.49) -155.52%, rgba(109, 55, 55, 0.50) 161.13%)",
-                  backdropFilter: "blur(17)",
+                  backdropFilter: "blur(17px)",
                 }}
               ></div>
             </div>
@@ -201,6 +244,29 @@ const AboutPage = () => {
               to be helpful.
             </p>
           </div>
+            <div className="absolute hidden top-[64%] right-0 flex-col gap-[0.3rem] md:flex">
+              <div
+                className="w-[18rem] h-[0.5rem] rounded-[0.3rem] md:h-[1rem]"
+                style={{
+                  background:
+                    "linear-gradient(267deg, rgba(251, 30, 53, 0.50) 3.46%, rgba(0, 50, 48, 0.20) 125.92%)",
+                }}
+              ></div>
+              <div
+                className="w-[18rem] h-[0.5rem] rounded-[0.3rem] translate-x-[-10%] md:h-[1rem]"
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(0, 50, 48, 0.20) 5.76%, rgba(251, 30, 53, 0.50) 71.18%, rgba(0, 50, 48, 0.20) 98.26%)",
+                }}
+              ></div>
+              <div
+                className="w-[18rem] h-[0.5rem] rounded-[0.3rem] translate-x-[-20%] md:h-[1rem]"
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(0, 50, 48, 0.10) 40.48%, rgba(251, 30, 53, 0.50) 69.77%)",
+                }}
+              ></div>
+            </div>
           <p className="font-redaction-20">
             This occurrence of GenAI degeneration is not limited to prompts in
             the form of text. Audio and image-generative systems are also
@@ -211,7 +277,7 @@ const AboutPage = () => {
             produce highly distorted results due to their vulnerability to being
             “poisoned” from manipulated data found online.
           </p>
-          <div className="flex flex-row gap-[3rem] justify-between translate-x-[100%] gallery">
+          <div className="flex flex-row gap-[3rem] justify-between translate-x-[100%] gallery md:hidden">
             <img src={ai1} />
             <img src={ai1} />
             <img src={ai1} />
@@ -226,37 +292,75 @@ const AboutPage = () => {
         </div>
       </section>
       <hr />
-      <section className="p-[2rem] flex flex-col gap-[1.5rem]">
-        <div>
-          <h2 className="text-[2rem] font-bold mb-[0.75rem]">Writeup by</h2>
-          <p>
-            Allen&nbsp;P.&nbsp;Gacutan, Ram&nbsp;Hebron, and Paolo&nbsp;Velilla
-          </p>
-        </div>
-        <div>
-          <h2 className="text-[2rem] font-bold mb-[0.75rem]">Designed by</h2>
-          <p>
-            Tiffani&nbsp;Ong, Razel&nbsp;Tan, Sam&nbsp;Villamin, and
-            Kathrynne&nbsp;Yu
-          </p>
-        </div>
-        <div>
-          <h2 className="text-[2rem] font-bold mb-[0.75rem]">Developed by</h2>
-          <p>Gabriel&nbsp;Paolo&nbsp;Tiu and Waleed&nbsp;Lugod</p>
-        </div>
-        <div>
-          <h2 className="text-[2rem] font-bold mb-[0.75rem]">
-            AI Generated Photos by
-          </h2>
-          <p>
-            Jason M. Allen (Midjourney), InflatableGull (Midjourney), Alexander
-            Mordvintsev (Deepdream), Karen X Cheng (OpenAI), Floris Groesz
-            (Dall-E), Jassenescapist, takieddine1758 (Midjourney & LeonardoAI),
-            Nitasha Tiku, Kevin Schaul and Szu Yu Chen (Stable Diffusion &
-            Midjourney), Andy Herd (TensorFlow), Johannes Vermeer (Dall-E).
-          </p>
+      <section className="flex flex-row justify-center p-[2rem]">
+        <div className="flex flex-col gap-[1.5rem] md:max-w-[50rem]">
+		<div className="md:flex md:flex-row md:justify-between">
+          <div>
+            <h2 className="text-[2rem] font-bold mb-[0.75rem]">Writeup by</h2>
+            <p>
+              Allen&nbsp;P.&nbsp;Gacutan, Ram&nbsp;Hebron, and
+              Paolo&nbsp;Velilla
+            </p>
+          </div>
+          <div>
+            <h2 className="text-[2rem] font-bold mb-[0.75rem]">Designed by</h2>
+            <p>
+              Tiffani&nbsp;Ong, Razel&nbsp;Tan, Sam&nbsp;Villamin, and
+              Kathrynne&nbsp;Yu
+            </p>
+          </div>
+          <div>
+            <h2 className="text-[2rem] font-bold mb-[0.75rem]">Developed by</h2>
+            <p>Gabriel&nbsp;Paolo&nbsp;Tiu and Waleed&nbsp;Lugod</p>
+          </div>
+		</div>
+          <div>
+            <h2 className="text-[2rem] font-bold mb-[0.75rem]">
+              AI Generated Photos by
+            </h2>
+            <p>
+              Jason M. Allen (Midjourney), InflatableGull (Midjourney),
+              Alexander Mordvintsev (Deepdream), Karen X Cheng (OpenAI), Floris
+              Groesz (Dall-E), Jassenescapist, takieddine1758 (Midjourney &
+              LeonardoAI), Nitasha Tiku, Kevin Schaul and Szu Yu Chen (Stable
+              Diffusion & Midjourney), Andy Herd (TensorFlow), Johannes Vermeer
+              (Dall-E).
+            </p>
+          </div>
         </div>
       </section>
+      <div
+        className="w-[7rem] h-[7rem] absolute top-[10%] right-0 rounded-[0.4rem]"
+        style={{
+          background:
+            "linear-gradient(169deg, rgba(255, 0, 0, 0.87) -155.52%, rgba(194, 122, 122, 0.49) 161.13%)",
+          backdropFilter: "blur(55px)",
+        }}
+      ></div>
+      <div
+        className="w-[4.6rem] h-[4.6rem] absolute top-[19%] right-[-1%] rounded-[0.4rem]"
+        style={{
+          background:
+            "linear-gradient(169deg, rgba(255, 3, 3, 0.49) -155.52%, rgba(109, 55, 55, 0.50) 161.13%)",
+          backdropFilter: "blur(50px)",
+        }}
+      ></div>
+      <div
+        className="w-[4.6rem] h-[4.6rem] absolute top-[12%] left-[3%] rounded-[0.4rem]"
+        style={{
+          background:
+            "linear-gradient(169deg, rgba(255, 0, 0, 0.87) -155.52%, rgba(124, 94, 94, 0.90) 161.13%)",
+          backdropFilter: "blur(50px)",
+        }}
+      ></div>
+      <div
+        className="w-[4.6rem] h-[4.6rem] absolute top-[30%] right-[3%] rounded-[0.4rem]"
+        style={{
+          background:
+            "linear-gradient(169deg, rgba(255, 3, 3, 0.49) -155.52%, rgba(109, 55, 55, 0.50) 161.13%)",
+          backdropFilter: "blur(50px)",
+        }}
+      ></div>
     </main>
   );
 };
