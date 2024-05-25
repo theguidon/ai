@@ -8,19 +8,19 @@ import { Link, useLocation } from "wouter";
 import Typed from "typed.js";
 
 const Essay = () => {
-  const [regenrateCount, setRegenerateCount] = useState(0);
+  const [regenerateCount, setRegenerateCount] = useState(0);
   const [location, navigate] = useLocation();
   useEffect(() => {
-    if (regenrateCount >= 3) {
+    if (regenerateCount >= 3) {
       navigate("/crash");
     }
-  }, [regenrateCount, navigate]);
+  }, [regenerateCount, navigate]);
 
   const essayEl = useRef(null);
   useEffect(() => {
     const typed = new Typed(essayEl.current, {
       strings: [
-        regenrateCount === 0
+        regenerateCount === 0
           ? `
                 Jose Rizal’s Noli Me Tángere and El Filibusterismo wielded significant influence on Philippine society during the late 19th-century colonial era. These literary works were pivotal in shaping the nation, instigating a desire for independence, and challenging the social injustices that would come years later.
 
@@ -35,7 +35,7 @@ const Essay = () => {
                 Rizal’s writings laid the groundwork for the nation. His call for reform sowed the seeds of resistance, influencing key figures such as Andres Bonifacio and Emilio Aguinaldo, who spearheaded the 1896 Philippine Revolution.
                 In essence, Jose Rizal’s Noli Me Tángere and El Filibusterismo left an indelible mark on Philippine society. They kindled a sense of national identity and provided the intellectual underpinnings for independence. As foundational texts in Philippine literature, these masterpieces continue to offer insights into the historical journey toward freedom.
 `
-          : regenrateCount === 1
+          : regenerateCount === 1
             ? `
                 Jose Rizal’s novels, Noli Me Tangere and El Filibusterismo, wielded significant influence on Philippine society during the late 20th-century Japanese colonial era. These literary works were pivotal in shaping the nation, instigating desire for revolt, and challenging coming social injustices.
 
@@ -71,7 +71,7 @@ const Essay = () => {
     return () => {
       typed.destroy();
     };
-  }, [regenrateCount]);
+  }, [regenerateCount]);
 
   const [isEssayLoading, setIsEssayLoading] = useState(true);
   useEffect(() => {
@@ -104,7 +104,7 @@ const Essay = () => {
           />
           <p
             className={`${
-              regenrateCount === 2 ? "font-redaction-70" : "font-redaction-20"
+              regenerateCount === 2 ? "font-redaction-70" : "font-redaction-20"
             } text-light-green text-[1.25rem] md:text-[1.7rem]`}
           >
             In under 500 words, can you try explaining to me the impact of Jośe
@@ -123,19 +123,19 @@ const Essay = () => {
           />
           <p
             className={`${
-              regenrateCount === 2 ? "font-redaction-70" : "font-redaction-20"
+              regenerateCount === 2 ? "font-redaction-70" : "font-redaction-20"
             } text-white text-[1.25rem] flex flex-col whitespace-pre-line md:text-[1.5rem]`}
             ref={essayEl}
           >
-            {regenrateCount === 0 ? (
+            {regenerateCount === 0 ? (
               <></>
-            ) : regenrateCount === 1 ? (
+            ) : regenerateCount === 1 ? (
               <></>
             ) : (
               <></>
             )}
           </p>
-          <div className={`w-full flex-col gap-[0.6rem] ${isEssayLoading ? "flex" : "hidden"}`}>
+          <div className={`w-full max-w-[50rem] flex-col gap-[0.6rem] ${isEssayLoading ? "flex" : "hidden"}`}>
             <div
               className="w-full h-4 rounded-[0.3rem]"
               style={{
@@ -163,7 +163,8 @@ const Essay = () => {
       <div className="px-[1.5rem] pb-[3rem] flex flex-col gap-[0.75rem] md:px-[9rem] md:gap-[1.7rem] md:pb-[6.25rem]">
         <button
           onClick={() => {
-            setRegenerateCount(regenrateCount + 1);
+            setRegenerateCount(regenerateCount + 1);
+						setIsEssayLoading(true)
           }}
           className="p-4 bg-light-green flex flex-row gap-[0.6rem] rounded-[0.5rem] font-bold w-fit"
         >
@@ -193,7 +194,7 @@ const Essay = () => {
         </button>
         <p
           className={`text-white ${
-            regenrateCount === 2 ? "font-redaction-70" : "font-redaction-20"
+            regenerateCount === 2 ? "font-redaction-70" : "font-redaction-20"
           } text-[1.25rem]`}
         >
           Regenerating would offer <b>AI Bot</b> more information to analyze for

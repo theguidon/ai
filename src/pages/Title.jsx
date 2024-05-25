@@ -86,7 +86,7 @@ const TitlePage = () => {
             icon={<BsFileRichtext size={40} />}
             title="Design an infographic"
             description="on the preventative measures during disasters"
-            to="#"
+            to="/infographic"
           />
           <Card
             to="#"
