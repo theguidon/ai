@@ -24,6 +24,7 @@ export default {
       white: "#ffffff",
       "t-dark-green": "#111f15",
       pink: "#ffd8d3",
+      "dark-pink": "#ff9283",
     },
   },
   plugins: [],
