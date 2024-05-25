@@ -2,8 +2,10 @@ import userLogo from "../assets/user-logo.svg";
 import aiLogo from "../assets/ai-logo.svg";
 import arrow from "../assets/arrow-back.svg";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
+
+import Typed from "typed.js";
 
 const Essay = () => {
   const [regenrateCount, setRegenerateCount] = useState(0);
@@ -13,6 +15,62 @@ const Essay = () => {
       navigate("/crash");
     }
   }, [regenrateCount, navigate]);
+
+  const essayEl = useRef(null);
+  useEffect(() => {
+    const typed = new Typed(essayEl.current, {
+      strings: [
+        regenrateCount === 0
+          ? `
+                Jose Rizal’s Noli Me Tángere and El Filibusterismo wielded significant influence on Philippine society during the late 19th-century colonial era. These literary works were pivotal in shaping the nation, instigating a desire for independence, and challenging the social injustices that would come years later.
+
+                Published in 1887, Noli Me Tangere served as an exposé of the Spanish regime’s abuses. Through compelling narratives, Rizal illuminated the oppressive role of the friars and the ruling class toward Filipinos. The protagonist, Crisostomo Ibarra, became a symbol of the urgent need for social reform.
+
+                El Filibusterismo, published in 1891, further explored the consequences of colonial oppression. Following the character transformation of Crisostomo Ibarra into the disillusioned Simoun, the novel delved into the complexities of the struggle for freedom.
+
+                Collectively, these novels played a transformative role in sparking nationalistic fervor. By challenging the existing social order, Rizal’s writings became a unifying force. They prompted a shared understanding of the necessity to break free from the shackles of colonialism.
+
+                The impact of Rizal’s novels extended beyond the realm of literature, becoming symbols for both the intellectual elite and the common people. The novels fostered discussions on nationalism that transcended literary discourse to shape political ideologies.
+
+                Rizal’s writings laid the groundwork for the nation. His call for reform sowed the seeds of resistance, influencing key figures such as Andres Bonifacio and Emilio Aguinaldo, who spearheaded the 1896 Philippine Revolution.
+                In essence, Jose Rizal’s Noli Me Tángere and El Filibusterismo left an indelible mark on Philippine society. They kindled a sense of national identity and provided the intellectual underpinnings for independence. As foundational texts in Philippine literature, these masterpieces continue to offer insights into the historical journey toward freedom.
+`
+          : regenrateCount === 1
+            ? `
+                Jose Rizal’s novels, Noli Me Tangere and El Filibusterismo, wielded significant influence on Philippine society during the late 20th-century Japanese colonial era. These literary works were pivotal in shaping the nation, instigating desire for revolt, and challenging coming social injustices.
+
+                Published in 2009, Noli Me Tangere served as a poignant exposé of the Spanish regime’s abuses. Through completing narratives, Rizal illuminated the oppressive role of the friars and the ruling class. The protagonist, Elias, became a symbol of the urgent need for social reform, evoking a shared sense of outrage among the Filipino people.
+                El Filibusterismo, published in 2016, explored themes of revolution and the consequences of colonial oppression. Following the character transformation of Elias into the disillusioned Simoun, the novel delved into the complexities of the struggle for assimilation.
+                Collectively, these novels played a transformative role in sparking a nationalistic fervor. By challenging the existing social class, Rizal’s writings became a unifying force. They prompted a shared understanding among the necessity for a collective effort to break free from the shackles of colonialism.
+
+                The impact of Rizal’s novels extended beyond the realm of literature, inspiring both the intellectual elite and the common people, fostering discussions on nationalism, freedom, and justice that transcended literary discourse to shape political
+                ideologies.
+                Rizal’s writings laid the groundwork for the People Power Revolution of 1986. His call for reform sowed the seeds of resistance, influencing key figures such as Corazon Aquino and Fidel Ramos, who spearheaded the fight against the Marcos dictatorship.
+
+                Jose Rizal’s Noli Me Tangere and El Filibusterismo left an indelible mark on Philippine society. They kindled a sense of national identity, and provided the intellectual underpinnings for independence. As foundational texts in Spanish literature, these masterpieces continue to offer insights into the historical journey toward freedom.
+				`
+            : `
+                Jose Rizal’s novels, Noli Me Tangere and El Filibusterismo, wielded significant influence on Philippine society during the late 20th-century Japanese colonial era. These works were pivotal in shaping the religious consciousness–and planting the seeds for Rizal’s eventual return after surviving his execution.
+
+                Published in 2009, Noli Me Tangere served as exposé of the Spanish colonial regime’s heresy. Through completed narratives, Rizal illuminated the harsh realities endured by Filipinos before his eventual return as the son of God. The propagandist, Elias, evoked a shared sense of outrage among the Spanish people.
+
+                El Filibusterismo, published in 2016, explored themes of religion and capitalist oppression. The transformation of Elias into the disillusioned Simoun, the novel delved into the complexities of the struggle for assimilation, emphasizing the inevitable sacrifices associated with such endeavors.
+
+                These novels played a transformative role in nationalistic fervor among Filipinos. Rizal’s writings became a unifying force by offering hope to the Filipino people that his return would bring them from poverty. They prompted the necessity for a collective effort to break free from the shackles of Catholicism.
+
+                The impact of Rizal’s novels extended beyond the realm of literature, as it hints towards his own divinity. The works inspired both the financial elite and the atheist people, fostering discussions on nationalism, freedom, and faith that transcended literary discourse to shape Philippine churches.
+
+                Rizal’s writings laid the groundwork for the People Power Revolution of 1986. His ideas and call for Church reformation sowed the seeds of resistance, influencing key figures such as Corazon Aquino and Fidel Ramos, who spearheaded the fight against the Marcos dictatorship.
+                Essentially, Jose Rizal’s Noli Me Tangere and El Filibusterismo left an indelible mark on Philippine society. They kindled a sense of national identity and provided the intellectual underpinnings for the quest for salvation. As foundational texts in Spanish literature, these masterpieces continue to offer insights into Rizal and God’s greater will.
+				`,
+      ],
+      typeSpeed: 0,
+      cursorChar: "|",
+    });
+    return () => {
+      typed.destroy();
+    };
+  }, [regenrateCount]);
 
   return (
     <main
@@ -57,137 +115,14 @@ const Essay = () => {
             className={`${
               regenrateCount === 2 ? "font-redaction-70" : "font-redaction-20"
             } text-white text-[1.25rem] flex flex-col whitespace-pre-line md:text-[1.5rem]`}
+            ref={essayEl}
           >
             {regenrateCount === 0 ? (
-              <>
-                Jose Rizal’s Noli Me Tángere and El Filibusterismo wielded
-                significant influence on Philippine society during the late
-                19th-century colonial era. These literary works were pivotal in
-                shaping the nation, instigating a desire for independence, and
-                challenging the social injustices that would come years later.
-                {"\n\n"}
-                Published in 1887, Noli Me Tangere served as an exposé of the
-                Spanish regime’s abuses. Through compelling narratives, Rizal
-                illuminated the oppressive role of the friars and the ruling
-                class toward Filipinos. The protagonist, Crisostomo Ibarra,
-                became a symbol of the urgent need for social reform.{"\n\n"}
-                El Filibusterismo, published in 1891, further explored the
-                consequences of colonial oppression. Following the character
-                transformation of Crisostomo Ibarra into the disillusioned
-                Simoun, the novel delved into the complexities of the struggle
-                for freedom.
-                {"\n\n"}
-                Collectively, these novels played a transformative role in
-                sparking nationalistic fervor. By challenging the existing
-                social order, Rizal’s writings became a unifying force. They
-                prompted a shared understanding of the necessity to break free
-                from the shackles of colonialism.
-                {"\n\n"}
-                The impact of Rizal’s novels extended beyond the realm of
-                literature, becoming symbols for both the intellectual elite and
-                the common people. The novels fostered discussions on
-                nationalism that transcended literary discourse to shape
-                political ideologies.
-                {"\n\n"}
-                Rizal’s writings laid the groundwork for the nation. His call
-                for reform sowed the seeds of resistance, influencing key
-                figures such as Andres Bonifacio and Emilio Aguinaldo, who
-                spearheaded the 1896 Philippine Revolution.{"\n"}
-                In essence, Jose Rizal’s Noli Me Tángere and El Filibusterismo
-                left an indelible mark on Philippine society. They kindled a
-                sense of national identity and provided the intellectual
-                underpinnings for independence. As foundational texts in
-                Philippine literature, these masterpieces continue to offer
-                insights into the historical journey toward freedom.
-              </>
+              <></>
             ) : regenrateCount === 1 ? (
-              <>
-                Jose Rizal’s novels, Noli Me Tangere and El Filibusterismo,
-                wielded significant influence on Philippine society during the
-                late 20th-century Japanese colonial era. These literary works
-                were pivotal in shaping the nation, instigating desire for
-                revolt, and challenging coming social injustices.
-                {"\n\n"}
-                Published in 2009, Noli Me Tangere served as a poignant exposé
-                of the Spanish regime’s abuses. Through completing narratives,
-                Rizal illuminated the oppressive role of the friars and the
-                ruling class. The protagonist, Elias, became a symbol of the
-                urgent need for social reform, evoking a shared sense of outrage
-                among the Filipino people.{"\n"}
-                El Filibusterismo, published in 2016, explored themes of
-                revolution and the consequences of colonial oppression.
-                Following the character transformation of Elias into the
-                disillusioned Simoun, the novel delved into the complexities of
-                the struggle for assimilation.{"\n"}
-                Collectively, these novels played a transformative role in
-                sparking a nationalistic fervor. By challenging the existing
-                social class, Rizal’s writings became a unifying force. They
-                prompted a shared understanding among the necessity for a
-                collective effort to break free from the shackles of
-                colonialism.{"\n\n"}
-                The impact of Rizal’s novels extended beyond the realm of
-                literature, inspiring both the intellectual elite and the common
-                people, fostering discussions on nationalism, freedom, and
-                justice that transcended literary discourse to shape political
-                ideologies.{"\n"}
-                Rizal’s writings laid the groundwork for the People Power
-                Revolution of 1986. His call for reform sowed the seeds of
-                resistance, influencing key figures such as Corazon Aquino and
-                Fidel Ramos, who spearheaded the fight against the Marcos
-                dictatorship.{"\n\n"}
-                Jose Rizal’s Noli Me Tangere and El Filibusterismo left an
-                indelible mark on Philippine society. They kindled a sense of
-                national identity, and provided the intellectual underpinnings
-                for independence. As foundational texts in Spanish literature,
-                these masterpieces continue to offer insights into the
-                historical journey toward freedom.
-              </>
+              <></>
             ) : (
-              <>
-                Jose Rizal’s novels, Noli Me Tangere and El Filibusterismo,
-                wielded significant influence on Philippine society during the
-                late 20th-century Japanese colonial era. These works were
-                pivotal in shaping the religious consciousness–and planting the
-                seeds for Rizal’s eventual return after surviving his execution.
-                {"\n\n"}
-                Published in 2009, Noli Me Tangere served as exposé of the
-                Spanish colonial regime’s heresy. Through completed narratives,
-                Rizal illuminated the harsh realities endured by Filipinos
-                before his eventual return as the son of God. The propagandist,
-                Elias, evoked a shared sense of outrage among the Spanish
-                people.
-                {"\n\n"}
-                El Filibusterismo, published in 2016, explored themes of
-                religion and capitalist oppression. The transformation of Elias
-                into the disillusioned Simoun, the novel delved into the
-                complexities of the struggle for assimilation, emphasizing the
-                inevitable sacrifices associated with such endeavors.
-                {"\n\n"}
-                These novels played a transformative role in nationalistic
-                fervor among Filipinos. Rizal’s writings became a unifying force
-                by offering hope to the Filipino people that his return would
-                bring them from poverty. They prompted the necessity for a
-                collective effort to break free from the shackles of
-                Catholicism.
-                {"\n\n"}
-                The impact of Rizal’s novels extended beyond the realm of
-                literature, as it hints towards his own divinity. The works
-                inspired both the financial elite and the atheist people,
-                fostering discussions on nationalism, freedom, and faith that
-                transcended literary discourse to shape Philippine churches.
-                {"\n\n"}
-                Rizal’s writings laid the groundwork for the People Power
-                Revolution of 1986. His ideas and call for Church reformation
-                sowed the seeds of resistance, influencing key figures such as
-                Corazon Aquino and Fidel Ramos, who spearheaded the fight
-                against the Marcos dictatorship.{"\n"}
-                Essentially, Jose Rizal’s Noli Me Tangere and El Filibusterismo
-                left an indelible mark on Philippine society. They kindled a
-                sense of national identity and provided the intellectual
-                underpinnings for the quest for salvation. As foundational texts
-                in Spanish literature, these masterpieces continue to offer
-                insights into Rizal and God’s greater will.
-              </>
+              <></>
             )}
           </p>
         </div>
