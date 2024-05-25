@@ -1,5 +1,5 @@
 import GlitchBG from '../assets/glitch-bg.gif';
-import AILogo from '../assets/ai-logo.png';
+import AILogo from '../assets/ai-logo.svg';
 import { BsFileEarmarkText, BsFileRichtext } from 'react-icons/bs';
 import { IconBase } from 'react-icons';
 import { Link } from 'wouter';

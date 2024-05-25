@@ -13,7 +13,6 @@ import ball from "../assets/ball.png";
 import chatgpt from "../assets/chatgpt.svg";
 import perplexity from "../assets/perplexity.svg";
 import midjourney from "../assets/midjourney.svg";
-import arrow from "../assets/arrow-counterclockwise.svg";
 
 import { Link } from "wouter";
 import { useRef } from "react";
@@ -54,7 +53,28 @@ const AboutPage = () => {
         to="/"
         className="self-end w-fit bg-light-red rounded-[0.5rem] p-[0.5rem] m-[1.62rem] flex flex-row gap-[0.5rem] text-[0.875rem] font-bold items-center"
       >
-        <img src={arrow} />
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="arrow-counterclockwise">
+            <g id="Vector">
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M12 4.49988C16.1421 4.49988 19.5 7.85775 19.5 11.9999C19.5 16.142 16.1421 19.4999 12 19.4999C7.85786 19.4999 4.5 16.142 4.5 11.9999C4.5 10.8817 4.7442 9.82267 5.18146 8.87139C5.35445 8.49503 5.18959 8.04969 4.81323 7.8767C4.43687 7.7037 3.99154 7.86856 3.81854 8.24492C3.29279 9.38872 3 10.6611 3 11.9999C3 16.9704 7.02944 20.9999 12 20.9999C16.9706 20.9999 21 16.9704 21 11.9999C21 7.02932 16.9706 2.99988 12 2.99988V4.49988Z"
+                fill="currentColor"
+              />
+              <path
+                d="M12 6.69924V0.800522C12 0.482583 11.6292 0.308899 11.3849 0.512438L7.8457 3.4618C7.66579 3.61172 7.66579 3.88804 7.8457 4.03796L11.3849 6.98732C11.6292 7.19086 12 7.01718 12 6.69924Z"
+                fill="currentColor"
+              />
+            </g>
+          </g>
+        </svg>
         Restart Simulation
       </Link>
       <section className="flex flex-col items-center p-[2rem] pt-0">
