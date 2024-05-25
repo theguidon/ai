@@ -80,7 +80,7 @@ const TitlePage = () => {
             icon={<BsFileEarmarkText size={40} />}
             title="Write me an essay"
             description="on Jośe Rizal’s novels Noli Me Tángere and El Filibusterismo"
-            to="#"
+            to="/essay"
           />
           <Card
             icon={<BsFileRichtext size={40} />}

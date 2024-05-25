@@ -65,12 +65,22 @@ const Essay = () => {
 				`,
       ],
       typeSpeed: 0,
-      cursorChar: "|",
+      showCursor: false,
+      startDelay: 2000,
     });
     return () => {
       typed.destroy();
     };
   }, [regenrateCount]);
+
+  const [isEssayLoading, setIsEssayLoading] = useState(true);
+  useEffect(() => {
+    const delay = setInterval(() => {
+      setIsEssayLoading(false);
+    }, 2000);
+
+		return () => clearInterval(delay)
+  }, [isEssayLoading]);
 
   return (
     <main
@@ -125,6 +135,29 @@ const Essay = () => {
               <></>
             )}
           </p>
+          <div className={`w-full flex-col gap-[0.6rem] ${isEssayLoading ? "flex" : "hidden"}`}>
+            <div
+              className="w-full h-4 rounded-[0.3rem]"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(155, 239, 194, 0.50) 16.69%, rgba(0, 50, 48, 0.20) 69.77%)",
+              }}
+            ></div>
+            <div
+              className="w-full h-4 rounded-[0.3rem]"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(0, 50, 48, 0.20) 5.76%, rgba(155, 239, 194, 0.50) 71.18%, rgba(0, 50, 48, 0.20) 98.26%)",
+              }}
+            ></div>
+            <div
+              className="w-full h-4 rounded-[0.3rem]"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(0, 50, 48, 0.10) 40.48%, rgba(155, 239, 194, 0.50) 69.77%)",
+              }}
+            ></div>
+          </div>
         </div>
       </section>
       <div className="px-[1.5rem] pb-[3rem] flex flex-col gap-[0.75rem] md:px-[9rem] md:gap-[1.7rem] md:pb-[6.25rem]">
