@@ -89,7 +89,7 @@ const TitlePage = () => {
             to="/infographic"
           />
           <Card
-            to="#"
+            to="/audio"
             icon={
               <IconBase
                 size={40}
