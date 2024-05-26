@@ -30,6 +30,8 @@ const Audio = () => {
 
   const waveRef = useRef(null);
   let wavesurfer;
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   useEffect(() => {
     const ctx = document.createElement("canvas").getContext("2d");
     const gradient = ctx.createLinearGradient(0, 0, 0, 150);
@@ -54,12 +56,27 @@ const Audio = () => {
       if (wavesurfer) wavesurfer.play();
     });
 
+    wavesurfer.on("ready", () => {
+      setDuration(wavesurfer.getDuration());
+    });
+
+    wavesurfer.on("timeupdate", () => {
+      setCurrentTime(wavesurfer.getCurrentTime());
+    });
+
+    setDuration(wavesurfer.getDuration());
+
     return () => wavesurfer.destroy();
   }, [regenerateCount]);
 
-	const handlePlay = useCallback(() => {
-    wavesurfer && wavesurfer.playPause()
-  }, [wavesurfer, regenerateCount])
+  const handlePlay = useCallback(() => {
+    wavesurfer && wavesurfer.playPause();
+  }, [wavesurfer, regenerateCount]);
+
+  const formatTime = (seconds) =>
+    [seconds / 60, seconds % 60]
+      .map((v) => `0${Math.floor(v)}`.slice(-2))
+      .join(":");
 
   return (
     <main
@@ -99,8 +116,11 @@ const Audio = () => {
             }}
           />
           <div className={`${isAudioLoading ? "hidden" : "block"} w-full`}>
-            <p className="bg-light-green px-2 py-1 rounded-[0.5rem] mb-4 font-bold text-[0.875rem] w-fit">
+            <p className="bg-light-green px-2 py-1 rounded-[0.5rem] mb-4 font-bold text-[0.875rem] w-fit inline-block">
               Draft {regenerateCount + 1}
+            </p>
+            <p className="text-white font-bold inline-block px-2">
+              {`${formatTime(currentTime)} / ${formatTime(duration)}`}
             </p>
             <div className="flex flex-row items-center h-[4.75rem] gap-[0.3rem]">
               <button className="h-[3.25rem]" onClick={handlePlay}>
