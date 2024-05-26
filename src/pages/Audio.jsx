@@ -197,7 +197,7 @@ const Audio = () => {
               </g>
             </g>
           </svg>
-          Regenerate image
+          Regenerate audio
         </button>
         <p
           className={`text-white ${
