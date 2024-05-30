@@ -1,8 +1,12 @@
-import GlitchBG from '../assets/glitch-bg.gif';
-import AILogo from '../assets/ai-logo.svg';
-import { BsFileEarmarkText, BsFileRichtext } from 'react-icons/bs';
-import { IconBase } from 'react-icons';
-import { Link } from 'wouter';
+import GlitchBG from "../assets/glitch-bg.gif";
+import AILogo from "../assets/ai-logo.svg";
+import GuidonLogo from "../assets/guidon.svg";
+import QuestionCircle from "../assets/question-circle-fill.svg";
+import { BsFileEarmarkText, BsFileRichtext } from "react-icons/bs";
+import { IconBase } from "react-icons";
+import { Link } from "wouter";
+import Typed from "typed.js";
+import { useEffect, useRef } from "react";
 
 /**
  *
@@ -17,22 +21,11 @@ import { Link } from 'wouter';
 const Card = (props) => {
   return (
     <>
-      {/* <div
-          className="absolute w-full h-full top-0 left-0 rounded-lg"
-          style={{
-            backgroundImage:
-              'linear-gradient(radial, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0.7) 99.38%)',
-
-            clipPath:
-              'polygon(0% 0%, 0% 100%, 1% 100%, 5% 5%, 99% 5%, 95% 95%, 1% 95%, 1% 100%, 100% 100%, 100% 0px)',
-          }}
-        /> */}
       <Link asChild to={props.to}>
         <article
-          className="rounded-lg p-3 grid gap-4 border-[#EBFFE099] border basis-1/3 hover:bg-[radial-gradient(#E5FFD455_0%,_#FFFFFF55_100%)] cursor-pointer"
+          className="rounded-lg p-[1.5rem] grid gap-4 border-[#EBFFE099] border basis-1/3 hover:bg-[radial-gradient(#E5FFD455_0%,_#FFFFFF55_100%)] cursor-pointer"
           style={{
-            backdropFilter: 'blur(21px) saturate(150%)',
-            backgroundImage: '',
+            backdropFilter: "blur(21px) saturate(150%)",
           }}
         >
           <div className="text-light-green grid gap-2.5">
@@ -46,36 +39,67 @@ const Card = (props) => {
   );
 };
 const TitlePage = () => {
+  const typedEl = useRef(null);
+  useEffect(() => {
+    const typed = new Typed(typedEl.current, {
+      strings: ["What can I help you with today?"],
+      typeSpeed: 50,
+      cursorChar: "|",
+    });
+
+    return () => typed.destroy();
+  });
   return (
-    <main className="min-h-screen grid place-items-center max-w-[1200px] mx-auto px-10">
+    <main className="min-h-screen w-screen p-[1.5rem] md:px-[7.5rem] flex flex-col justify-center">
       <div
-        className="bg-cover w-full h-full fixed -z-20"
+        className="top-0 left-0 w-full h-full fixed -z-20"
         style={{
-          backgroundImage: 'linear-gradient(311.99deg, #0C4346 -24.28%, #0D0B10 107.05%)',
+          backgroundImage:
+            "linear-gradient(311.99deg, #0C4346 -24.28%, #0D0B10 107.05%)",
         }}
       ></div>
 
       <div
-        className="bg-cover w-full h-full opacity-30 fixed -z-10"
+        className="top-0 left-0 w-full h-full opacity-30 fixed -z-10"
         style={{
           backgroundImage: `url(${GlitchBG})`,
         }}
       />
 
       <div
-        className="bg-cover w-full h-full opacity-10 fixed -z-10"
+        className="top-0 left-0 w-full h-full opacity-10 fixed -z-10"
         style={{
-          backgroundColor: '#070707',
+          backgroundColor: "#070707",
         }}
       />
-      <section className="grid gap-20">
-        <div className="flex items-center justify-center flex-col gap-4">
-          <img src={AILogo} alt="AI Logo" className="mx-auto size-[105px]" />
-          <h1 className="font-redaction-20 text-2xl text-[#7FCD78]">AI Bot</h1>
-          <p className="font-bold text-6xl text-white">What can I help you with today?</p>
+      <section className="flex flex-col">
+        <Link
+          to="/about"
+          className="text-white text-4 font-bold rounded-[0.5rem] bg-[#122429] border-light-green border-[1px] p-[0.75rem] w-fit self-end flex flex-row gap-[0.6rem]"
+        >
+          <img src={QuestionCircle} />
+          About
+        </Link>
+        <div className="flex items-center justify-center flex-col gap-4 pt-[3rem]">
+          <img src={GuidonLogo} className="w-[13.5rem] pb-[3rem]" />
+          <img
+            src={AILogo}
+            alt="AI Logo"
+            className="mx-auto size-[3rem] md:size-[6.5rem] rounded-[1.25rem]"
+            style={{
+              background:
+                "linear-gradient(131deg, #FFF -119.31%, rgba(153, 153, 153, 0.00) 145.54%)",
+            }}
+          />
+          <h1 className="font-redaction-20 text-[1.5rem] text-[#7FCD78] text-center py-[1rem] md:text-[2rem] md:py-[0rem]">
+            Creating Entropy: The Degeneration of Generative AI
+          </h1>
+            <span
+              ref={typedEl}
+              className="font-bold text-[2.25rem] text-white text-center md:text-[3.5rem] typed"
+            ></span>
         </div>
-        <div className=" flex justify-center gap-6">
-          {/* TOOD: Fill Links */}
+        <div className="flex flex-col justify-center gap-6 md:flex-row pt-[2rem] pb-[3.5rem]">
           <Card
             icon={<BsFileEarmarkText size={40} />}
             title="Write me an essay"
@@ -111,6 +135,7 @@ const TitlePage = () => {
             description="that reflects on the human experience"
           />
         </div>
+        <img src={GuidonLogo} className="w-[26.25rem] md:hidden" />
       </section>
     </main>
   );

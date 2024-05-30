@@ -153,3 +153,10 @@
   font-weight: 700;
   src: url('/fonts/Redaction_100-Bold.woff2') format('woff2');
 }
+
+/* typed css */
+.typed::after {
+	content: '|';
+	display: inline;
+	color: #6CD89D;
+}

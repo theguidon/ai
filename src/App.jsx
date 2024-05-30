@@ -17,6 +17,7 @@ function App() {
       <Route path="/about" component={AboutPage} />
       <Route path="/essay" component={EssayPage} />
       <Route path="/audio" component={AudioPage} />
+      <Route path="/Infographic" component={InfographicPage} />
     </Switch>
   );
 }
