@@ -1,5 +1,5 @@
 import GlitchBG from '../assets/glitch-bg.gif';
-import AILogo from '../assets/ai-logo.png';
+import AILogo from '../assets/ai-logo.svg';
 import { BsFileEarmarkText, BsFileRichtext } from 'react-icons/bs';
 import { IconBase } from 'react-icons';
 import { Link } from 'wouter';
@@ -80,16 +80,16 @@ const TitlePage = () => {
             icon={<BsFileEarmarkText size={40} />}
             title="Write me an essay"
             description="on Jośe Rizal’s novels Noli Me Tángere and El Filibusterismo"
-            to="#"
+            to="/essay"
           />
           <Card
             icon={<BsFileRichtext size={40} />}
             title="Design an infographic"
             description="on the preventative measures during disasters"
-            to="#"
+            to="/infographic"
           />
           <Card
-            to="#"
+            to="/audio"
             icon={
               <IconBase
                 size={40}
